@@ -4,6 +4,7 @@
     for a certain number
 """
 
+
 def pascal_triangle(n):
     """
     This function prints out the pascal triangle
@@ -17,11 +18,11 @@ def pascal_triangle(n):
         return finalarray
     if n == 2:
         finalarray.append([1])
-        finalarray.append([1,1])
+        finalarray.append([1, 1])
         return finalarray
     if n > 2:
         finalarray.append([1])
-        finalarray.append([1,1])
+        finalarray.append([1, 1])
     for j in range(n):
         i = j + 2
         if i < n:
