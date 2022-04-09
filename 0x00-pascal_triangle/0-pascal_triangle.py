@@ -1,5 +1,12 @@
+#!/bin/env/python3
 
 def pascal_triangle(n):
+    """
+    This function prints out the pascal triangle
+    of the number n
+        Args:
+            n: this is the number of elements in the triangle array
+    """
     finalarray = []
     if n == 1:
         finalarray.append([1])
