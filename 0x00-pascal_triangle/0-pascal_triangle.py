@@ -25,6 +25,6 @@ def pascal_triangle(n):
                     val = previous[x] + previous[x + 1]
                     newarray.append(val)
                 else:
-                     newarray.append(1)
+                    newarray.append(1)
             finalarray.append(newarray)
     return finalarray
