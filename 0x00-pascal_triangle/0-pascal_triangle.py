@@ -1,4 +1,8 @@
 #!/bin/env/python3
+"""
+    This module computes the pascal triangle
+    for a certain number
+"""
 
 def pascal_triangle(n):
     """
