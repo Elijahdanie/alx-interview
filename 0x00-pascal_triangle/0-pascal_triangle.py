@@ -13,21 +13,10 @@ def pascal_triangle(n):
             n: this is the number of elements in the triangle array
     """
     finalarray = []
-    if n == 1:
-        finalarray.append([1])
-        return finalarray
-    if n == 2:
-        finalarray.append([1])
-        finalarray.append([1, 1])
-        return finalarray
-    if n > 2:
-        finalarray.append([1])
-        finalarray.append([1, 1])
-    for j in range(n):
-        i = j + 2
+    for i in range(n):
         if i < n:
             length = len(finalarray)
-            previous = finalarray[length - 1]
+            previous = finalarray[length - 1] if length > 0 else []
             prev_len = len(previous)
             newarray = []
             newarray.append(1)
@@ -35,6 +24,7 @@ def pascal_triangle(n):
                 if x < prev_len - 1:
                     val = previous[x] + previous[x + 1]
                     newarray.append(val)
-            newarray.append(1)
+                else:
+                     newarray.append(1)
             finalarray.append(newarray)
     return finalarray
