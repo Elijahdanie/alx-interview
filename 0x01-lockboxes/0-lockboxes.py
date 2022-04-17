@@ -1,6 +1,5 @@
-"""
-Set up
-"""
+#!/usr/bin/python3
+
 """
 This module calculates if the boxes can
 be unlocked
@@ -10,6 +9,8 @@ be unlocked
 def canUnlockAll(boxes):
     """
     Calculates if all the boxes can be unlocked
+        Args:
+            boxes: A list of boxes filled with keys
     """
 
     num_boxes = len(boxes)
