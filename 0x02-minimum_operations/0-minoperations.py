@@ -20,5 +20,3 @@ def minOperations(n):
             n /= max_operations
         max_operations += 1
     return track_operations
-
-print(minOperations(19170307))
