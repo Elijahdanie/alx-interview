@@ -24,7 +24,7 @@ def print_stats(fileSize, map_):
     """
     prints info on error
     """
-    print('File Size: {}'.format(fileSize))
+    print('File size: {}'.format(fileSize))
     [print('{}: {}'.format(i[0], i[1])) for i in map_.items()]
 
 
@@ -55,5 +55,5 @@ if __name__ == '__main__':
                     fileSize = 0
                     aggregate = 0
         print_stats(fileSize, map_)
-    except KeyboardInterrupt as e:
+    except KeyboardInterrupt:
         print_stats(fileSize, map_)
