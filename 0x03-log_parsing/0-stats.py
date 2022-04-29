@@ -2,7 +2,7 @@
 """
 This module parses logs from the stdout
 """
-import fileinput
+import sys
 
 
 def parseline(line):
@@ -26,7 +26,7 @@ def print_stats(fileSize, map_, e):
     """
     print('File Size: {}'.format(fileSize))
     [print('{}: {}'.format(i[0], i[1])) for i in map_.items()]
-    print(e)
+    print()
 
 
 if __name__ == '__main__':
@@ -37,7 +37,7 @@ if __name__ == '__main__':
     fileSize = 0
     map_ = {}
     try:
-        for line in fileinput.input():
+        for line in sys.stdin:
             line = line.strip()
             parsed = parseline(line)
             if parsed is not None:
