@@ -23,9 +23,6 @@ def parseline(line):
 def print_stats(fileSize, map_):
     print('File Size: {}'.format(fileSize))
     [print('{}: {}'.format(i[0], i[1])) for i in map_.items()]
-    map_ = {}
-    fileSize = 0
-    aggregate = 0
 
 
 if __name__ == '__main__':
