@@ -20,13 +20,12 @@ def parseline(line):
         return None
 
 
-def print_stats(fileSize, map_, e):
+def print_stats(fileSize, map_):
     """
     prints info on error
     """
     print('File Size: {}'.format(fileSize))
     [print('{}: {}'.format(i[0], i[1])) for i in map_.items()]
-    print()
 
 
 if __name__ == '__main__':
@@ -55,5 +54,6 @@ if __name__ == '__main__':
                     map_ = {}
                     fileSize = 0
                     aggregate = 0
+        print_stats(fileSize, map_)
     except KeyboardInterrupt as e:
-        print_stats(fileSize, map_, e)
+        print_stats(fileSize, map_)
