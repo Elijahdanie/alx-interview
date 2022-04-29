@@ -1,31 +1,59 @@
 #!/usr/bin/python3
-''' parses input from stdin and prints stats '''
+"""
+This module parses logs from the stdout
+"""
 import sys
-from collections import OrderedDict
-from re import search as grep
 
 
-def print_log(size, map_):
-    ''' print to stdout '''
-    print("File size: {}".format(size))
-    for k, v in map_.items():
-        if k and v:
-            print("{}: {}".format(k, v))
+def parseline(line):
+    """
+    This function parses a line from
+    the stdout
+    """
+    try:
+        parsed = {}
+        temp = line.split(' ')
+        parsed['fileSize'] = int(temp[8])
+        parsed['code'] = temp[7]
+        return parsed
+    except Exception as e:
+        return None
 
 
-if __name__ == "__main__":
-    line_count = total_size = 0
-    CODES = [200, 301, 400, 401, 403, 404, 405, 500, None]
-    map_ = OrderedDict((k, 0) for k in CODES)
+def print_stats(fileSize, map_):
+    """
+    prints info on error
+    """
+    print('File size: {}'.format(fileSize))
+    [print('{}: {}'.format(i[0], i[1])) for i in map_.items()]
+
+
+if __name__ == '__main__':
+    """
+    Entry point for the code
+    """
+    aggregate = 0
+    fileSize = 0
+    map_ = {}
     try:
         for line in sys.stdin:
-            status, size = grep(" \d{3} ", line), grep("\d{1,4}$", line)
-            status = int(status.group()) if status else None
-            map_[status] += 1
-            total_size += int(size.group()) if size else 0
-            line_count += 1
-            if line_count % 10 == 0:
-                print_log(total_size, map_)
-        print_log(total_size, map_)
+            line = line.strip()
+            parsed = parseline(line)
+            if parsed is not None:
+                aggregate += 1
+                fileSize += parsed['fileSize']
+                code_key = parsed['code']
+                if code_key in map_.keys():
+                    map_[code_key] += 1
+                else:
+                    map_[code_key] = 1
+                map_ = dict(sorted(map_.items()))
+                if aggregate == 10:
+                    print('File size: {}'.format(fileSize))
+                    [print('{}: {}'.format(i[0], i[1])) for i in map_.items()]
+                    map_ = {}
+                    fileSize = 0
+                    aggregate = 0
+        print_stats(fileSize, map_)
     except KeyboardInterrupt:
-        print_log(total_size, map_)
+        print_stats(fileSize, map_)
