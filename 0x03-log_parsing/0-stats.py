@@ -4,10 +4,6 @@ This module parses logs from the stdout
 """
 import fileinput
 
-aggregate: int = 0
-fileSize: int = 0
-code_map = {}
-
 
 def parseline(line):
     """
@@ -28,6 +24,9 @@ if __name__ == '__main__':
     """
     Entry point for the code
     """
+    aggregate = 0
+    fileSize = 0
+    code_map = {}
     for line in fileinput.input():
         line = line.strip()
         parsed = parseline(line)
