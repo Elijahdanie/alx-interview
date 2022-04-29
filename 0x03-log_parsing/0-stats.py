@@ -1,25 +1,35 @@
 #!/usr/bin/env python3
 
+"""
+This module parses logs
+"""
+
 import fileinput
 
 aggregate: int = 0
 fileSize: int = 0
 code_map = {}
 
+
 def parseline(line):
+    """
+    This function parses a line from
+    the stdout
+    """
     try:
         parsed = {}
         temp = line.split(' ')
         parsed['fileSize'] = int(temp[8])
         parsed['code'] = temp[7]
         return parsed
-    except:
+    except Exception as e:
         return None
+
 
 for line in fileinput.input():
     line = line.strip()
     parsed = parseline(line)
-    if parsed != None:
+    if parsed is not None:
         aggregate += 1
         fileSize += parsed['fileSize']
         code_key = parsed['code']
