@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-
 """
-This module parses logs
+This module parses logs from the stdout
 """
-
 import fileinput
 
 aggregate: int = 0
@@ -25,7 +23,11 @@ def parseline(line):
     except Exception as e:
         return None
 
+
 if __name__ == '__main__':
+    """
+    Entry point for the code
+    """
     for line in fileinput.input():
         line = line.strip()
         parsed = parseline(line)
