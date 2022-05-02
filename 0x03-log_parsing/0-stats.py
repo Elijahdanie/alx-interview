@@ -2,8 +2,8 @@
 """
 This module parses logs from the stdout
 """
+from collections import OrderedDict
 import sys
-from typing import OrderedDict
 
 
 def parseline(line):
