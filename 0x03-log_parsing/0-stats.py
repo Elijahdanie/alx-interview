@@ -49,7 +49,7 @@ if __name__ == '__main__':
                 code_key = parsed['code']
                 if code_key in map_.keys():
                     map_[code_key] += 1
-                elif code_key.isdigit():
+                else:
                     map_[code_key] = 1
                 map_ = dict(sorted(map_.items()))
                 if aggregate == 10:
