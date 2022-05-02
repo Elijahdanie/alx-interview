@@ -14,7 +14,7 @@ def parseline(line):
         parsed = {}
         temp = line.split(' ')
         parsed['fileSize'] = int(temp[8])
-        parsed['code'] = temp[7]
+        parsed['code'] = int(temp[7])
         return parsed
     except Exception as e:
         return None
