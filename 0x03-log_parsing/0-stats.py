@@ -13,8 +13,12 @@ def parseline(line):
     try:
         parsed = {}
         temp = line.split(' ')
-        parsed['fileSize'] = int(temp[8])
-        parsed['code'] = int(temp[7])
+        if len(temp) == 9:
+            parsed['fileSize'] = int(temp[8])
+            parsed['code'] = temp[7]
+        else:
+            parsed['fileSize'] = int(temp[6])
+            parsed['code'] = temp[5]
         return parsed
     except Exception as e:
         return None
@@ -45,7 +49,7 @@ if __name__ == '__main__':
                 code_key = parsed['code']
                 if code_key in map_.keys():
                     map_[code_key] += 1
-                else:
+                elif code_key.isdigit():
                     map_[code_key] = 1
                 map_ = dict(sorted(map_.items()))
                 if aggregate == 10:
