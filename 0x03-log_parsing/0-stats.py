@@ -53,10 +53,10 @@ if __name__ == '__main__':
                     map_[code_key] += 1
                 elif code_key.isdigit():
                     map_[code_key] = 1
-                map_sorted = OrderedDict(sorted(map_.items()))
+                srt = OrderedDict(sorted(map_.items()))
                 if aggregate == 10:
                     print('File size: {}'.format(fileSize))
-                    [print('{}: {}'.format(i[0], i[1])) for i in map_sorted.items()]
+                    [print('{}: {}'.format(i[0], i[1])) for i in srt.items()]
                     aggregate = 0
         print_stats(fileSize, map_)
     except KeyboardInterrupt:
