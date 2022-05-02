@@ -48,12 +48,12 @@ if __name__ == '__main__':
                 else:
                     map_[code_key] = 1
                 map_ = dict(sorted(map_.items()))
-                if aggregate == 9:
+                if aggregate == 10:
                     print('File size: {}'.format(fileSize))
                     [print('{}: {}'.format(i[0], i[1])) for i in map_.items()]
                     map_ = {}
                     fileSize = 0
                     aggregate = 0
         print_stats(fileSize, map_)
-    except KeyboardInterrupt:
+    except KeyboardInterrupt as e:
         print_stats(fileSize, map_)
