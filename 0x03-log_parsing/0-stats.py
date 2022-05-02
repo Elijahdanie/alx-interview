@@ -55,6 +55,7 @@ if __name__ == '__main__':
                     fileSize = 0
                     aggregate = 0
         print_stats(fileSize, map_)
-    except KeyboardInterrupt as e:
+    except KeyboardInterrupt:
         print_stats(fileSize, map_)
+        raise
     print_stats(fileSize, map_)
