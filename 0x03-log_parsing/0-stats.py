@@ -3,6 +3,7 @@
 This module parses logs from the stdout
 """
 import sys
+from typing import OrderedDict
 
 
 def parseline(line):
@@ -28,8 +29,9 @@ def print_stats(fileSize, map_):
     """
     prints info on error
     """
+    map_sorted = OrderedDict(sorted(map_.items()))
     print('File size: {}'.format(fileSize))
-    [print('{}: {}'.format(i[0], i[1])) for i in map_.items()]
+    [print('{}: {}'.format(i[0], i[1])) for i in map_sorted.items()]
 
 
 if __name__ == '__main__':
@@ -51,10 +53,10 @@ if __name__ == '__main__':
                     map_[code_key] += 1
                 elif code_key.isdigit():
                     map_[code_key] = 1
-                map_ = dict(sorted(map_.items()))
+                map_sorted = OrderedDict(sorted(map_.items()))
                 if aggregate == 10:
                     print('File size: {}'.format(fileSize))
-                    [print('{}: {}'.format(i[0], i[1])) for i in map_.items()]
+                    [print('{}: {}'.format(i[0], i[1])) for i in map_sorted.items()]
                     aggregate = 0
         print_stats(fileSize, map_)
     except KeyboardInterrupt:
