@@ -48,7 +48,7 @@ if __name__ == '__main__':
                 else:
                     map_[code_key] = 1
                 map_ = dict(sorted(map_.items()))
-                if aggregate == 10:
+                if aggregate == 9:
                     print('File size: {}'.format(fileSize))
                     [print('{}: {}'.format(i[0], i[1])) for i in map_.items()]
                     map_ = {}
