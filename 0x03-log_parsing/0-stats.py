@@ -57,3 +57,4 @@ if __name__ == '__main__':
         print_stats(fileSize, map_)
     except KeyboardInterrupt as e:
         print_stats(fileSize, map_)
+    print_stats(fileSize, map_)
