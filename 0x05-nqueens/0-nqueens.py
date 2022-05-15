@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
+"""
+This module demonstrates
+solution to Nqueens problem
+"""
+
 import sys
-from typing import List
 
 data = sys.argv[1]
 
@@ -10,7 +14,12 @@ negDiag = set()
 columns = set()
 board = []
 
+
 def validateCell(cell):
+    """
+    This function checks to see
+    if cell lies in any of the axis
+    """
     if cell[1] in columns:
         return False
     if (cell[0] - cell[1]) in diagAxis:
@@ -22,7 +31,12 @@ def validateCell(cell):
     columns.add(cell[1])
     return True
 
+
 def placeQueen(row, n, rowindex, startPos):
+    """
+    This function places a queen at
+    a position in a row
+    """
     for i in range(n):
         if rowindex == 0:
             validateCell(row[startPos])
@@ -31,7 +45,11 @@ def placeQueen(row, n, rowindex, startPos):
             return row[i]
 
 
-def solve(n: int, solutions: List[List[int]], startPos: int):
+def solve(n: int, solutions, startPos: int):
+    """
+    This function solves the Nqueens problem
+    by backtracking
+    """
     result = []
     for i in range(n):
         t = placeQueen(board[i], n, i, startPos)
@@ -47,13 +65,14 @@ def solve(n: int, solutions: List[List[int]], startPos: int):
     else:
         return solutions
 
+
 if __name__ == '__main__':
     n = int(data)
     if type(n) is not int:
-        print('Error: Input must be an integer')
+        print('N must be a number')
         exit(1)
     if n < 4:
-        print('Error: Input must be at least 4')
+        print('N must be at least 4')
         exit(1)
     for r in range(n):
         row = []
