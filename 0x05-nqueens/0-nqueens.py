@@ -54,9 +54,8 @@ def solve(n: int, solutions, startPos: int):
     for i in range(n):
         t = placeQueen(board[i], n, i, startPos)
         if t is not None:
-            result.append([t[1], t[0]])
-    if len(result) == n:
-        solutions.append(result)
+            result.append(t)
+    solutions.append(result)
     negDiag.clear()
     diagAxis.clear()
     columns.clear()
@@ -72,6 +71,7 @@ if __name__ == '__main__':
         print('N must be a number')
         exit(1)
     if n < 4:
+        print('Usage: nqueens N')
         print('N must be at least 4')
         exit(1)
     for r in range(n):
