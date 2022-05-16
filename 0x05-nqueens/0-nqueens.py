@@ -7,8 +7,6 @@ solution to Nqueens problem
 
 import sys
 
-data = sys.argv[1]
-
 diagAxis = set()
 negDiag = set()
 columns = set()
@@ -67,12 +65,13 @@ def solve(n: int, solutions, startPos: int):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+    data = sys.argv[1]
     n = int(data)
     if type(n) is not int:
         print('N must be a number')
-        exit(1)
-    if n <= 2:
-        print('Usage: nqueens N')
         exit(1)
     if n < 4:
         print('N must be at least 4')
