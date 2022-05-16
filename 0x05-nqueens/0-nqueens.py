@@ -65,21 +65,22 @@ def solve(n: int, solutions, startPos: int):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: nqueens N")
-        sys.exit(1)
-    data = sys.argv[1]
-    n = int(data)
-    if type(n) is not int:
-        print('N must be a number')
+    try:
+        if len(sys.argv) != 2:
+            print("Usage: nqueens N")
+            sys.exit(1)
+        data = sys.argv[1]
+        n = int(data)
+        if n < 4:
+            print('N must be at least 4')
+            exit(1)
+        for r in range(n):
+            row = []
+            for c in range(n):
+                row.append([r, c])
+            board.append(row)
+        final = solve(n, [], 0)
+        [print(i) for i in final]
+    except ValueError:
+        print("N must be a number")
         exit(1)
-    if n < 4:
-        print('N must be at least 4')
-        exit(1)
-    for r in range(n):
-        row = []
-        for c in range(n):
-            row.append([r, c])
-        board.append(row)
-    final = solve(n, [], 0)
-    [print(i) for i in final]
