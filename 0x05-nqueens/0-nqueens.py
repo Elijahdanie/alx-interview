@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 """
 This module demonstrates
@@ -50,19 +50,18 @@ def solve(n: int, solutions, startPos: int):
     This function solves the Nqueens problem
     by backtracking
     """
+    if startPos == n:
+        return solutions
     result = []
     for i in range(n):
         t = placeQueen(board[i], n, i, startPos)
-        if t is not None:
-            result.append(t)
+        result.append(t)
     solutions.append(result)
     negDiag.clear()
     diagAxis.clear()
     columns.clear()
-    if startPos < n - 1:
+    if startPos < n:
         return solve(n, solutions, startPos + 1)
-    else:
-        return solutions
 
 
 if __name__ == '__main__':
