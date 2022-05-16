@@ -71,8 +71,10 @@ if __name__ == '__main__':
     if type(n) is not int:
         print('N must be a number')
         exit(1)
-    if n < 4:
+    if n <= 2:
         print('Usage: nqueens N')
+        exit(1)
+    if n < 4:
         print('N must be at least 4')
         exit(1)
     for r in range(n):
