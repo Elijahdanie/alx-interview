@@ -55,8 +55,10 @@ def solve(n: int, solutions, startPos: int):
     result = []
     for i in range(n):
         t = placeQueen(board[i], n, i, startPos)
-        result.append(t)
-    solutions.append(result)
+        if t is not None:
+            result.append(t)
+    if len(result) == n:
+        solutions.append(result)
     negDiag.clear()
     diagAxis.clear()
     columns.clear()
