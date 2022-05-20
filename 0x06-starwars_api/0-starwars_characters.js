@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const req = require('reuqest');
+const req = require('request');
 
 const baseUrl = 'https://swapi-api.hbtn.io/api/films';
 
