@@ -1,8 +1,8 @@
 #!/usr/bin/node
 
-const req = require("reuqest");
+const req = require('reuqest');
 
-const baseUrl = "https://swapi-api.hbtn.io/api/films";
+const baseUrl = 'https://swapi-api.hbtn.io/api/films';
 
 const id = process.argv[2];
 
@@ -13,9 +13,8 @@ if (id) {
     } else {
       const data = JSON.parse(body);
       const characters = data.characters;
-      len = characters.length;
-      let names = characters;
-      let tempDict = {};
+      let len = characters.length;
+      const tempDict = {};
       characters.forEach((element) => {
         req.get(element, (err, res, body) => {
           if (err) {
@@ -25,7 +24,7 @@ if (id) {
             len -= 1;
             tempDict[data.url] = data.name;
             if (len === 0) {
-              names.forEach((name) => {
+              characters.forEach((name) => {
                 console.log(tempDict[name]);
               });
             }
