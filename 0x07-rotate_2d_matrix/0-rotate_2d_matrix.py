@@ -17,6 +17,7 @@ def rotate_2d_matrix(matrix):
         for row in matrix:
             c_mat.append(row[column_step])
             continue
+        c_mat.reverse()
         rotated_matrix.append(c_mat)
         column_step += 1
     for i in range(len_matrix):
