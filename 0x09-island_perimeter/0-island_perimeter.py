@@ -1,9 +1,10 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 
 """
 This module computes the perimeter
 of an island in a grid
 """
+
 
 def island_perimeter(grid):
     """
@@ -23,6 +24,6 @@ def island_perimeter(grid):
                 bool_map.append(grid[i - 1][cell] == 0 or i - 1 < 0)
                 bool_map.append(grid[i + 1][cell] == 0 or i + 1 > len_grid - 1)
                 for i in bool_map:
-                    if i == True:
+                    if i:
                         c_p += 1
     return c_p
