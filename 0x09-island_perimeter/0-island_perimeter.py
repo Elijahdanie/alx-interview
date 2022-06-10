@@ -21,10 +21,10 @@ def island_perimeter(grid):
         for cell in range(row_len):
             if row[cell] == 1:
                 bool_map = []
-                bool_map.append(row[cell - 1] == 0 or cell - 1 < 0)
-                bool_map.append(row[cell + 1] == 0 or cell + 1 > row_len - 1)
-                bool_map.append(grid[i - 1][cell] == 0 or i - 1 < 0)
-                bool_map.append(grid[i + 1][cell] == 0 or i + 1 > len_grid - 1)
+                bool_map.append(cell - 1 < 0 or row[cell - 1] == 0)
+                bool_map.append(cell + 1 > row_len - 1 or row[cell + 1] == 0)
+                bool_map.append(i - 1 < 0 or grid[i - 1][cell] == 0)
+                bool_map.append(i + 1 > len_grid - 1 or grid[i + 1][cell] == 0)
                 for i in bool_map:
                     if i:
                         c_p += 1
