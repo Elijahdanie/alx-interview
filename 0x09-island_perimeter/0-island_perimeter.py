@@ -11,8 +11,12 @@ def island_perimeter(grid):
     This function computes the perimeter
     of an island in a grid
     """
-    if(grid == None):
-        return
+    if(grid is None):
+        return 0
+    if(type(grid) not in [list]):
+        return 0
+    if(len(grid) == 0):
+        return 0
     c_p = 0
     len_grid = len(grid)
     for i in range(len_grid):
