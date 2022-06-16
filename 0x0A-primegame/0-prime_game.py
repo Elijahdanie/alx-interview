@@ -10,16 +10,15 @@ def isWinner(x, nums):
     """
     Entry point of the computation
     """
-    if len(nums) != x:
-        return None
     if x is None or nums is None or x == 0 or nums == []:
         return None
     contestant = {'Maria': 0, 'Ben': 0}
     for i in range(x):
-        game_map = list(range(1, nums[i]))
-        winner = play(game_map)
-        if winner:
-            contestant[winner] += 1
+        if(i < len(nums)):
+            game_map = list(range(1, nums[i]))
+            winner = play(game_map)
+            if winner:
+                contestant[winner] += 1
     mar_ = contestant['Maria']
     beb_ = contestant['Ben']
     if mar_ > beb_:
