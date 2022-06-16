@@ -18,7 +18,6 @@ def isWinner(x, nums):
         winner = play(game_map)
         if winner:
             contestant[winner] += 1
-    print(contestant)
     mar_ = contestant['Maria']
     beb_ = contestant['Ben']
     if mar_ > beb_:
