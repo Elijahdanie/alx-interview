@@ -18,6 +18,7 @@ def isWinner(x, nums):
         winner = play(game_map)
         if winner:
             contestant[winner] += 1
+    print(contestant)
     mar_ = contestant['Maria']
     beb_ = contestant['Ben']
     if mar_ > beb_:
@@ -32,18 +33,14 @@ def play(game_map: list):
     """
     This function represent a round for the game
     """
-    print('round with {}'.format(game_map))
     curr_player = 0
-    if len(game_map) > 0 and game_map[-1] == 1:
-        return 'Maria'
     while(len(game_map) > 0):
         game_map = pick(game_map)
-        print(game_map)
         curr_player = curr_player + 1
         if curr_player > 1:
             curr_player = 0
-        if (game_map == []):
-            return 'Maria' if curr_player == 0 else 'Ben'
+    if (game_map == []):
+        return 'Maria' if curr_player == 0 else 'Ben'
 
 
 def pick(map: list):
