@@ -26,7 +26,7 @@ def island_perimeter(grid):
             if row[cell] == 1:
                 bool_map = []
                 bool_map.append(cell - 1 < 0 or row[cell - 1] == 0)
-                bool_map.append(cell + 1 > row_len - 1 or row[cell + 1] == 0)
+                bool_map.append((cell + 1) > (row_len - 1) or row[cell + 1] == 0)
                 bool_map.append(i - 1 < 0 or grid[i - 1][cell] == 0)
                 bool_map.append(i + 1 > len_grid - 1 or grid[i + 1][cell] == 0)
                 for i in bool_map:
